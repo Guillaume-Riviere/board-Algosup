@@ -21,10 +21,12 @@
 #include "HTTPClient.h"          //Include library for HTTPClient
 #include "Inkplate.h"            //Include Inkplate library to the sketch
 #include "WiFi.h"                //Include library for WiFi
-Inkplate display(INKPLATE_1BIT); // Create an object on Inkplate library and also set library into 1 Bit mode (BW)
+Inkplate display(INKPLATE_3BIT); // Create an object on Inkplate library and also set library into 3 Bit mode (BW)
 
 const char ssid[] = "Livebox-CB13";    // Your WiFi SSID
 const char *password = "E64C62711A5214EFFF5863EFF0"; // Your WiFi password
+
+const String path = "https://raw.githubusercontent.com/Guillaume-Riviere/board-Algosup/main/image.png";
 
 // If your Inkplate doesn't have external (or second) MCP I/O expander, you should uncomment next line,
 // otherwise your code could hang out when you send code to your Inkplate.
@@ -64,8 +66,7 @@ void loop()
     // true will flip all colors on the image, making black white and white black. forth parameter will dither the
     // image.
     
-
-    if (!display.drawImage("https://raw.githubusercontent.com/Guillaume-Riviere/board-Algosup/main/image.jpg", 0, 0, true, false))
+    if (!display.drawImage(path, display.PNG, 0, 0, true, false))
     {
         // If is something failed (wrong filename or format), write error message on the screen.
         display.println("Image open error");
