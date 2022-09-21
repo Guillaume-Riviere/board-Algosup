@@ -21,10 +21,10 @@
 #include "HTTPClient.h"          //Include library for HTTPClient
 #include "Inkplate.h"            //Include Inkplate library to the sketch
 #include "WiFi.h"                //Include library for WiFi
+#include "WifiPass.h"
 Inkplate display(INKPLATE_3BIT); // Create an object on Inkplate library and also set library into 3 Bit mode (BW)
 
-const char ssid[] = "Livebox-CB13";    // Your WiFi SSID
-const char *password = "E64C62711A5214EFFF5863EFF0"; // Your WiFi password
+
 
 const String path = "https://raw.githubusercontent.com/Guillaume-Riviere/board-Algosup/main/image.png";
 
